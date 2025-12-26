@@ -1,0 +1,52 @@
+:root {
+    /* --- Colors (Astro Cosmic Dark) --- */
+    --bg-body: #09090b;
+    /* Rich Dark Grey (Zinc-950) */
+    --bg-surface: #18181b;
+    /* Zinc-900 */
+    --bg-card: rgba(24, 24, 27, 0.6);
+    /* Glassy Card */
+
+    --border-light: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.15);
+    --border-glow: rgba(139, 92, 246, 0.3);
+    /* Purple Glow */
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%);
+    /* Purple -> Pink */
+    --gradient-text: linear-gradient(to right, #ffffff, #a1a1aa);
+
+    --primary: #8b5cf6;
+    /* Violet */
+    --accent: #d946ef;
+    /* Fuchsia */
+
+    --text-main: #fafafa;
+    /* Zinc-50 */
+    --text-muted: #a1a1aa;
+    /* Zinc-400 */
+    --text-dim: #52525b;
+    /* Zinc-600 */
+
+    /* --- Typography (Sans Only) --- */
+    --font-head: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* --- Spacing --- */
+    --container-width: 1200px;
+    /* Tighter, more standard */
+    --header-height: 80px;
+    --section-spacing: 120px;
+
+    /* --- Effects --- */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 24px;
+
+    /* Subtle Grid */
+    --bg-grid:
+        linear-gradient(var(--border-light) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border-light) 1px, transparent 1px);
+}
