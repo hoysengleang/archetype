@@ -1,0 +1,552 @@
+/* --- Buttons --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 40px;
+    border-radius: 0;
+    /* Sharp */
+    font-size: 14px;
+    font-weight: 500;
+    transition: var(--transition);
+    cursor: pointer;
+    border: 1px solid var(--primary);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1px;
+
+    /* Astro Gradient Button */
+    .btn-primary {
+        background: var(--bg-surface);
+        color: var(--text-main);
+        border: 1px solid var(--border-light);
+        border-radius: var(--radius-sm);
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        text-transform: none;
+        /* Sentence case */
+    }
+
+    .btn-primary::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: var(--gradient-primary);
+        z-index: -1;
+        opacity: 0;
+        transition: var(--transition);
+    }
+
+    .btn-primary:hover {
+        border-color: transparent;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+    }
+
+    .btn-primary:hover::before {
+        opacity: 1;
+    }
+
+    .btn-silver {
+        background: transparent;
+        border: 1px solid var(--border-light);
+        color: var(--text-muted);
+        border-radius: var(--radius-sm);
+        text-transform: none;
+        font-family: var(--font-body);
+    }
+
+    .btn-silver:hover {
+        background: var(--bg-surface);
+        color: var(--text-main);
+        border-color: var(--text-main);
+    }
+
+    .btn-glass {
+        background: var(--bg-glass);
+        border: 1px solid var(--border-glass);
+        color: var(--text-main);
+        backdrop-filter: var(--blur-light);
+    }
+
+    .btn-glass:hover {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: var(--bg-body);
+        box-shadow: 0 0 30px var(--primary-glow);
+    }
+
+    .btn-silver {
+        background: transparent;
+        border: 1px solid var(--border-strong);
+        color: var(--text-main);
+    }
+
+    .btn-silver:hover {
+        background: var(--text-main);
+        color: var(--bg-body);
+        box-shadow: none;
+    }
+}
+
+/* --- Cards (Grid Style) --- */
+.glass-card {
+    background: transparent;
+    border: 1px solid var(--border-light);
+    border-radius: 0;
+    /* Sharp */
+    padding: 40px;
+    backdrop-filter: none;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.glass-card:hover {
+    transform: none;
+    border-color: var(--text-main);
+    background: var(--bg-surface);
+    box-shadow: none;
+}
+
+.glass-card:hover::before {
+    opacity: 1;
+}
+
+/* --- Stats --- */
+.stat-card {
+    text-align: center;
+    border-right: 1px solid var(--border-glass);
+}
+
+.stat-card:last-child {
+    border-right: none;
+}
+
+.stat-number {
+    font-family: var(--font-head);
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--text-main);
+    /* Cleaner look */
+    display: block;
+    margin-bottom: 8px;
+    text-shadow: none;
+}
+
+/* --- Features (Bento Grid) --- */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, minmax(300px, auto));
+    gap: 20px;
+}
+
+.bento-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bento-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+.bento-card.span-2 {
+    grid-column: span 2;
+}
+
+.bento-card.span-row-2 {
+    grid-row: span 2;
+}
+
+.bento-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--bg-surface);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--primary);
+    margin-bottom: 20px;
+    border: 1px solid var(--border-light);
+}
+
+.bento-title {
+    font-family: var(--font-head);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+.bento-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.bento-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60%;
+    height: 80%;
+    object-fit: contain;
+    mask-image: linear-gradient(to top, black, transparent);
+    -webkit-mask-image: linear-gradient(to top, black, transparent);
+    opacity: 0.5;
+    transition: var(--transition);
+}
+
+.bento-card:hover .bento-image {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+@media (max-width: 900px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .bento-card.span-2,
+    .bento-card.span-row-2 {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
+
+/* --- Capabilities (Marquee) --- */
+.marquee-section {
+    padding: 80px 0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    background: var(--bg-body);
+    overflow: hidden;
+}
+
+.marquee-container {
+    display: flex;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.marquee-content {
+    display: flex;
+    animation: marquee 30s linear infinite;
+}
+
+.marquee-item {
+    font-family: var(--font-head);
+    font-size: 60px;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--border-strong);
+    margin: 0 40px;
+    text-transform: uppercase;
+    opacity: 0.5;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* --- Vision & Philosophy (Editorial) --- */
+.editorial-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.vision-title {
+    font-family: var(--font-head);
+    font-size: 32px;
+    line-height: 1.4;
+    color: var(--text-main);
+    margin-bottom: 24px;
+    font-style: italic;
+}
+
+.vision-text {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+/* --- Why Us (Benefit List) --- */
+.benefit-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-top: 1px solid var(--border-light);
+}
+
+.benefit-item {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border-light);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    align-items: baseline;
+    transition: var(--transition);
+}
+
+.benefit-item:hover {
+    padding-left: 20px;
+    /* Slight drift on hover */
+}
+
+.benefit-title {
+    font-family: var(--font-head);
+    font-size: 18px;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.benefit-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+    .editorial-split {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .benefit-item {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+/* --- Testimonials --- */
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    text-align: center;
+    border: 1px solid var(--border-light);
+    border-top: 1px solid var(--border-light);
+}
+
+.quote-icon {
+    font-size: 32px;
+    background: none;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    opacity: 1;
+}
+
+.testimonial-text {
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    color: var(--text-main);
+}
+
+.client-info h4 {
+    color: var(--text-main);
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.client-info span {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Process (Typographic List) --- */
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0;
+    /* Touch borders */
+    border-top: 1px solid var(--border-light);
+}
+
+.step-card {
+    background: transparent;
+    padding: 60px 40px;
+    border-right: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    border-radius: 0;
+    text-align: left;
+    transition: var(--transition);
+    position: relative;
+}
+
+.step-card:last-child {
+    border-right: none;
+}
+
+.step-number {
+    font-family: var(--font-head);
+    font-size: 60px;
+    color: #ffffff;
+    opacity: 1;
+    width: auto;
+    height: auto;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    display: block;
+    margin-bottom: 30px;
+    box-shadow: none;
+}
+
+.step-card:hover .step-number {
+    color: var(--text-main);
+    opacity: 1;
+}
+
+.step-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+    color: var(--text-main);
+}
+
+.step-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* --- Forms (Astro Style) --- */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.input-field {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 16px 20px;
+    color: var(--text-main);
+    font-size: 15px;
+    font-family: var(--font-body);
+    transition: var(--transition);
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+    /* Violet ring */
+}
+
+.input-field::placeholder {
+    color: var(--text-dim);
+}
+
+.form-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decoration for form */
+.form-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .form-card {
+        padding: 24px;
+    }
+
+    /* Ensure other grids stack */
+    .editorial-split,
+    .benefit-item,
+    .process-steps,
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefit-item {
+        gap: 12px;
+        padding-left: 0 !important;
+        /* Remove hover drift on mobile */
+    }
+
+    .step-card {
+        border-right: none;
+    }
+
+    /* Cards full width */
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bento-card.span-2,
+    .bento-card.span-row-2 {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}

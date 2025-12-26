@@ -1,0 +1,80 @@
+/* --- Animations --- */
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes glow {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spinSlow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.anim-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.anim-spin {
+    animation: spinSlow 20s linear infinite;
+}
+
+.reveal-text {
+    background: linear-gradient(90deg, var(--text-main) 0%, rgba(255, 255, 255, 0) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    opacity: 0;
+    animation: slideUp 0.8s forwards;
+}

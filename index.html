@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARCHETYPE | High-Performance Digital Agency</title>
+    <meta name="description"
+        content="ARCHETYPE is a developer-first digital agency specifying in high-performance web engineering, Next.js/Astro architecture, and immersive UI/UX design.">
+    <meta name="keywords"
+        content="Web Development, Astro, Next.js, Digital Agency, UI/UX, Performance, React, Software Engineering">
+    <meta name="author" content="ARCHETYPE">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://archetype.design/">
+    <meta property="og:title" content="ARCHETYPE | High-Performance Digital Agency">
+    <meta property="og:description"
+        content="Shipping better software, faster. We architect digital legacies with modern tech stacks.">
+    <meta property="og:image" content="https://archetype.design/assets/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://archetype.design/">
+    <meta property="twitter:title" content="ARCHETYPE | High-Performance Digital Agency">
+    <meta property="twitter:description"
+        content="Shipping better software, faster. We architect digital legacies with modern tech stacks.">
+    <meta property="twitter:image" content="https://archetype.design/assets/og-image.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Gradients */
+        .text-gradient {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-gradient {
+            background: var(--gradient-primary);
+        }
+
+        /* Fix for sticky footer */
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        footer {
+            margin-top: auto;
+            border-top: 1px solid var(--border-light);
+            background: var(--bg-body);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Elements -->
+    <div class="hero-bg">
+        <!-- Radial Gradient for "Astro" look -->
+        <div
+            style="position: absolute; top: -20%; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%); filter: blur(100px); pointer-events: none;">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <!-- Navigation (Floating Pill) -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                ARCHETYPE<span style="color: var(--primary);">.</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#services" class="nav-link">Expertise</a>
+                <a href="#process" class="nav-link">Method</a>
+                <a href="#work" class="nav-link">Work</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="hero-grid"></div>
+            <div class="hero-blob blob-1 anim-float"></div>
+            <div class="hero-blob blob-2 anim-float" style="animation-delay: -3s;"></div>
+        </div>
+
+        <div class="container hero-content">
+            <h1 class="hero-title animate-on-scroll"
+                style="font-family: var(--font-head); font-weight: 700; letter-spacing: -2px; font-size: 72px;">
+                Shipping <br>
+                <span class="text-gradient">Better Software.</span>
+            </h1>
+            <p class="hero-subtitle animate-on-scroll" style="font-family: var(--font-body); color: var(--text-muted);">
+                A developer-first portfolio template built for speed. Clean code, performant animations, and zero
+                clutter.
+            </p>
+            <div class="animate-on-scroll"
+                style="display: flex; gap: 20px; justify-content: center; margin-bottom: 60px;">
+                <a href="#showcase" class="btn btn-primary">Our Masterpieces</a>
+                <a href="#contact" class="btn btn-silver">Start a Project</a>
+            </div>
+
+            <!-- Social Proof -->
+            <!-- <div class="animate-on-scroll" style="margin-top: 40px; display: flex; justify-content: center;">
+                <div class="trusted-by-pill">
+                    <span class="trusted-label">Trusted By</span>
+                    <div class="trusted-logos">
+                        <i class="fab fa-google"></i>
+                        <i class="fab fa-amazon"></i>
+                        <i class="fab fa-spotify"></i>
+                        <i class="fab fa-apple"></i>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">OUR EXPERTISE</span>
+                <h2 class="section-title">Curated Services</h2>
+                <p class="section-desc">We combine cutting-edge technology with immersive design to deliver solutions
+                    that stand out.</p>
+            </div>
+
+            <div class="team-grid">
+                <!-- Service 1 -->
+                <div class="glass-card">
+                    <i class="ph ph-code" style="font-size: 40px; color: var(--primary); margin-bottom: 20px;"></i>
+                    <h3>Web Engineering</h3>
+                    <p style="color: var(--text-muted); margin-top: 10px;">
+                        Architecting robust full-stack solutions. Fast, secure, and scalable foundations for your
+                        digital empire.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-card">
+                    <i class="ph ph-paint-brush-broad"
+                        style="font-size: 40px; color: var(--secondary); margin-bottom: 20px;"></i>
+                    <h3>Digital Artistry</h3>
+                    <p style="color: var(--text-muted); margin-top: 10px;">
+                        Immersive UI/UX design. We blend aesthetics with intuition to create breathtaking interfaces.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-card">
+                    <i class="ph ph-rocket-launch"
+                        style="font-size: 40px; color: var(--accent); margin-bottom: 20px;"></i>
+                    <h3>Brand Evolution</h3>
+                    <p style="color: var(--text-muted); margin-top: 10px;">
+                        Positioning your brand for the next era. Strategic data-driven insights met with creative
+                        vision.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process (NEW) -->
+    <section id="process" class="section" style="background: rgba(255,255,255,0.02);">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">METHODOLOGY</span>
+                <h2 class="section-title">The Path to Perfection</h2>
+                <p class="section-desc">Our disciplined approach ensures consistent excellence in every undertaking.</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="step-card animate-on-scroll">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Discovery</h3>
+                    <p class="step-desc">We begin by listening. Understanding your vision, your audience, and your
+                        unique challenges.</p>
+                    <ul class="step-details">
+                        <li>Stakeholder Interviews</li>
+                        <li>User Persona Generation</li>
+                        <li>Competitive Analysis</li>
+                        <li>Technical Requirements Spec</li>
+                    </ul>
+                </div>
+                <div class="step-card animate-on-scroll" style="transition-delay: 0.2s">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Creation</h3>
+                    <p class="step-desc">Our artisans get to work. Designing, coding, and refining every pixel and line
+                        of code.</p>
+                    <ul class="step-details">
+                        <li>High-Fidelity UI/UX Design</li>
+                        <li>Full-Stack Engineering</li>
+                        <li>Interactive Prototyping</li>
+                        <li>System Architecture</li>
+                    </ul>
+                </div>
+                <div class="step-card animate-on-scroll" style="transition-delay: 0.4s">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Launch</h3>
+                    <p class="step-desc">Rigorous testing ensures a flawless debut. We launch your platform into the
+                        digital cosmos.</p>
+                    <ul class="step-details">
+                        <li>QA Stress Testing</li>
+                        <li>SEO Optimization</li>
+                        <li>Global Deployment</li>
+                        <li>Post-Launch Analytics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Philosophy (NEW) -->
+    <section id="philosophy" class="section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">PHILOSOPHY</span>
+            </div>
+
+            <div class="editorial-split">
+                <div class="animate-on-scroll">
+                    <h2 class="vision-title">
+                        "We do not merely build websites.<br>
+                        We architect digital legacies."
+                    </h2>
+                </div>
+                <div class="animate-on-scroll" style="transition-delay: 0.2s">
+                    <p class="vision-text">
+                        In an era of noise, silence is luxury. We reject the clutter of the modern web in favor of
+                        timeless precision. Every pixel is placed with purpose; every interaction is a whisper of
+                        innovation. We partner with brands that dare to define the future by honoring the past.
+                    </p>
+
+                    <!-- Why Us List -->
+                    <div class="benefit-list">
+                        <div class="benefit-item">
+                            <span class="benefit-title">Global Standards</span>
+                            <span class="benefit-desc">We adhere to the strictest international standards of code
+                                quality, accessibility, and performance.</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-title">Future-Proof</span>
+                            <span class="benefit-desc">Building on cutting-edge stacks (React, WebGL, AI) to ensure your
+                                platform thrives in 2030.</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-title">Elite Craft</span>
+                            <span class="benefit-desc">Our collective is composed of award-winning artisans. No juniors,
+                                no outsourcing. Pure mastery.</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-title">Bank-Grade Security</span>
+                            <span class="benefit-desc">We implement enterprise-level encryption and security protocols
+                                to protect your data and reputation.</span>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-title">Speed Optimized</span>
+                            <span class="benefit-desc">Our code is handcrafted for performance. We target 100/100
+                                Lighthouse scores for instant loading.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects (Bento Grid) -->
+    <section id="work" class="section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label"
+                    style="border: 1px solid var(--border-light); border-radius: 20px; padding: 6px 16px; font-size: 12px; text-transform: none; color: var(--primary); background: rgba(139, 92, 246, 0.05);">Portfolio</span>
+                <h2 class="section-title" style="margin-top: 16px;">Built with Purpose</h2>
+            </div>
+
+            <div class="bento-grid">
+                <!-- Card 1: Large Featured -->
+                <div class="bento-card span-2 animate-on-scroll">
+                    <div class="bento-content">
+                        <div class="bento-icon"><i class="fas fa-bolt"></i></div>
+                        <h3 class="bento-title">Fast & Performant</h3>
+                        <p class="bento-desc">Optimized for 100/100 Lighthouse scores. Zero layout shift, instant TTI,
+                            and efficient asset loading strategy.</p>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1000"
+                        class="bento-image" alt="Clean Code and Performance" loading="lazy">
+                </div>
+
+                <!-- Card 2: Stack -->
+                <div class="bento-card animate-on-scroll"
+                    style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), transparent);">
+                    <div class="bento-icon"><i class="fab fa-react"></i></div>
+                    <h3 class="bento-title">Modern Stack</h3>
+                    <p class="bento-desc">React, Astro, Tailwind, and TypeScript. Type-safe and component-driven.</p>
+                </div>
+
+                <!-- Card 3: Design -->
+                <div class="bento-card animate-on-scroll">
+                    <div class="bento-icon"><i class="fas fa-palette"></i></div>
+                    <h3 class="bento-title">UI System</h3>
+                    <p class="bento-desc">A comprehensive design system with consistent tokens for color, spacing, and
+                        typography.</p>
+                </div>
+
+                <!-- Card 4: Large Horizontal -->
+                <div class="bento-card span-2 animate-on-scroll">
+                    <div class="bento-content">
+                        <div class="bento-icon"><i class="fas fa-server"></i></div>
+                        <h3 class="bento-title">Serverless Architecture</h3>
+                        <p class="bento-desc">Deployed on the edge. Infinite scalability with zero infrastructure
+                            management using Cloudflare Workers.</p>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1558494949-ef526b01201b?auto=format&fit=crop&q=80&w=1000"
+                        class="bento-image" style="right: -20%;" alt="Server Infrastructure" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Marquee (NEW) -->
+    <section class="marquee-section">
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <span class="marquee-item">Strategy</span>
+                <span class="marquee-item">Design</span>
+                <span class="marquee-item">Development</span>
+                <span class="marquee-item">React</span>
+                <span class="marquee-item">WebGL</span>
+                <span class="marquee-item">Node.js</span>
+                <span class="marquee-item">Python</span>
+                <span class="marquee-item">AI Integration</span>
+                <!-- Duplicate for loop -->
+                <span class="marquee-item">Strategy</span>
+                <span class="marquee-item">Design</span>
+                <span class="marquee-item">Development</span>
+                <span class="marquee-item">React</span>
+                <span class="marquee-item">WebGL</span>
+                <span class="marquee-item">Node.js</span>
+                <span class="marquee-item">Python</span>
+                <span class="marquee-item">AI Integration</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials (NEW) -->
+    <section id="testimonials" class="section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">ACCLAIM</span>
+                <h2 class="section-title">Words of Praise</h2>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="glass-card testimonial-card">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p class="testimonial-text">"Freelife didn't just build a website; they crafted an identity. The
+                        attention to detail is simply unparalleled."</p>
+                    <div class="client-info">
+                        <h4>James Harrison</h4>
+                        <span>CEO, FutureTech Inc.</span>
+                    </div>
+                </div>
+                <div class="glass-card testimonial-card">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p class="testimonial-text">"An absolute pleasure to work with. They took our vague ideas and turned
+                        them into a digital masterpiece."</p>
+                    <div class="client-info">
+                        <h4>Elena Rodriguez</h4>
+                        <span>Founder, ArtSpace</span>
+                    </div>
+                </div>
+                <div class="glass-card testimonial-card">
+                    <i class="fas fa-quote-left quote-icon"></i>
+                    <p class="testimonial-text">"Professional, timely, and artistically gifted. The gold standard for
+                        web development in 2026."</p>
+                    <div class="client-info">
+                        <h4>Michael Chen</h4>
+                        <span>Director, Nexus Group</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section" style="padding-bottom: 150px;">
+        <div class="container" style="max-width: 800px;">
+            <div class="form-card animate-on-scroll">
+                <div class="section-header">
+                    <h2 class="section-title">Start a Conversation</h2>
+                    <p style="color: var(--text-muted)">Ready to ship? Let's discuss your next breakthrough.</p>
+                </div>
+
+                <form>
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <input type="text" class="input-field" placeholder="Name" aria-label="Name" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" class="input-field" placeholder="Email" aria-label="Email" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" class="input-field" placeholder="Company / Organization"
+                            aria-label="Company or Organization" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea class="input-field" rows="5"
+                            placeholder="Tell us about the project scope, timeline, and goals..."
+                            aria-label="Project Details" required></textarea>
+                    </div>
+                    <div style="text-align: center; margin-top: 40px;">
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                            Initialize Sequence <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="margin-bottom: 24px; display: block;">
+                        ARCHETYPE<span style="color: var(--primary);">.</span>
+                    </a>
+                    <p style="color: var(--text-muted);">Defining the new standard for digital excellence.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 style="font-family: var(--font-head);">Connect</h4>
+                    <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 24px;">
+                        Open for collaborations and coffee.<br>
+                        Based in San Francisco.
+                    </p>
+                    <a href="#" class="btn btn-primary" style="padding: 8px 16px; font-size: 14px;">Let's Talk</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Social</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 ARCHETYPE. All rights reserved.</span>
+                <span>Crafted by <span style="color: var(--text-main);">ARCHETYPE</span></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ARCHETYPE",
+      "url": "https://archetype.design",
+      "logo": "https://archetype.design/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-555-555-5555",
+        "contactType": "customer service"
+      },
+      "sameAs": [
+        "https://twitter.com/archetype",
+        "https://instagram.com/archetype",
+        "https://linkedin.com/company/archetype"
+      ]
+    }
+    </script>
+</body>
+
+</html>
