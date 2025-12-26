@@ -228,4 +228,47 @@ document.addEventListener('DOMContentLoaded', () => {
             setTheme(next);
         });
     }
+
+    // --- Custom Cursor Logic ---
+    const cursorDot = document.querySelector('[data-cursor-dot]');
+    const cursorOutline = document.querySelector('[data-cursor-outline]');
+
+    // Only active on desktop (devices with fine pointers)
+    if (window.matchMedia("(pointer: fine)").matches) {
+        window.addEventListener('mousemove', function (e) {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            // Dot moves instantly
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+
+            // Outline moves with animation (handled by CSS transition or simple JS delay)
+            // For smoother performance, using simple JS set
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, {
+                duration: 500,
+                fill: "forwards"
+            });
+        });
+
+        // Hover Effect
+        const interactiveElements = document.querySelectorAll(`
+            a, button, input, textarea, select, label,
+            .bento-card, .theme-btn, .scroll-top-btn, .telegram-btn,
+            [role="button"], [onclick], .cursor-hover
+        `);
+
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                document.body.classList.add('hovering');
+            });
+            el.addEventListener('mouseleave', () => {
+                document.body.classList.remove('hovering');
+            });
+        });
+    }
+
 });
