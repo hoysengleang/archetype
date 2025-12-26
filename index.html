@@ -66,6 +66,9 @@
 </head>
 
 <body>
+    <!-- Snow Container -->
+    <div id="snowContainer"></div>
+
     <!-- Background Elements -->
     <div class="hero-bg">
         <!-- Radial Gradient for "Astro" look -->
@@ -89,10 +92,15 @@
                 <a href="#contact" class="nav-link">Contact</a>
             </nav>
 
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
-                <span></span>
-                <span></span>
-            </button>
+            <div class="header-controls" style="display: flex; align-items: center; gap: 20px;">
+                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -307,8 +315,7 @@
                 </div>
 
                 <!-- Card 2: Stack -->
-                <div class="bento-card animate-on-scroll"
-                    style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), transparent);">
+                <div class="bento-card accent animate-on-scroll">
                     <div class="bento-icon"><i class="fab fa-react"></i></div>
                     <h3 class="bento-title">Modern Stack</h3>
                     <p class="bento-desc">React, Astro, Tailwind, and TypeScript. Type-safe and component-driven.</p>
@@ -338,29 +345,29 @@
     </section>
 
     <!-- Capabilities Marquee (NEW) -->
-    <section class="marquee-section">
+    <!-- <section class="marquee-section">
         <div class="marquee-container">
-            <div class="marquee-content">
-                <span class="marquee-item">Strategy</span>
+            <div class="marquee-content"> -->
+    <!-- <span class="marquee-item">Strategy</span>
                 <span class="marquee-item">Design</span>
                 <span class="marquee-item">Development</span>
                 <span class="marquee-item">React</span>
                 <span class="marquee-item">WebGL</span>
                 <span class="marquee-item">Node.js</span>
                 <span class="marquee-item">Python</span>
-                <span class="marquee-item">AI Integration</span>
-                <!-- Duplicate for loop -->
-                <span class="marquee-item">Strategy</span>
+                <span class="marquee-item">AI Integration</span> -->
+    <!-- Duplicate for loop -->
+    <!-- <span class="marquee-item">Strategy</span>
                 <span class="marquee-item">Design</span>
                 <span class="marquee-item">Development</span>
                 <span class="marquee-item">React</span>
                 <span class="marquee-item">WebGL</span>
                 <span class="marquee-item">Node.js</span>
                 <span class="marquee-item">Python</span>
-                <span class="marquee-item">AI Integration</span>
-            </div>
+                <span class="marquee-item">AI Integration</span> -->
+    <!-- </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Testimonials (NEW) -->
     <section id="testimonials" class="section">
@@ -425,14 +432,16 @@
                             aria-label="Company or Organization" required>
                     </div>
                     <div class="input-group">
-                        <textarea class="input-field" rows="5"
-                            placeholder="Tell us about the project scope, timeline, and goals..."
+                        <textarea class="input-field" rows="5" placeholder="What's on your mind?"
                             aria-label="Project Details" required></textarea>
                     </div>
                     <div style="text-align: center; margin-top: 40px;">
                         <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
                             Initialize Sequence <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
                         </button>
+                        <p class="form-response-time">
+                            <i class="fas fa-clock"></i> We usually reply within 24 hours.
+                        </p>
                     </div>
                 </form>
             </div>
@@ -472,6 +481,15 @@
             </div>
         </div>
     </footer>
+
+    <!-- Floating Action Buttons -->
+    <a href="#" target="_blank" class="telegram-btn" aria-label="Contact on Telegram">
+        <i class="fab fa-telegram-plane"></i>
+    </a>
+
+    <button id="scrollTop" class="scroll-top-btn" aria-label="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- Scripts -->
     <!-- Scripts -->

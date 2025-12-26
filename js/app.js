@@ -1,5 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- Snow Logic (Moved to Top to Fix ReferenceError) ---
+    let snowInterval;
+    const snowContainer = document.getElementById('snowContainer');
+
+    function createSnowflake() {
+        if (!snowContainer) return;
+        const flake = document.createElement('div');
+        flake.classList.add('snowflake');
+        flake.innerHTML = '❄'; // Ice/Snow character
+
+        // Randomize - Gentle Version
+        const size = Math.random() * 5 + 8 + 'px'; // 8px - 13px (Smaller)
+        const left = Math.random() * 100 + 'vw';
+        const duration = Math.random() * 5 + 3 + 's'; // 3s - 8s (Slower)
+        const opacity = Math.random() * 0.5 + 0.1; // 0.1 - 0.6 (More transparent)
+
+        flake.style.left = left;
+        flake.style.fontSize = size;
+        flake.style.opacity = opacity;
+        flake.style.animationDuration = duration;
+
+        snowContainer.appendChild(flake);
+
+        // Remove after animation
+        setTimeout(() => {
+            flake.remove();
+        }, parseFloat(duration) * 1000);
+    }
+
+    function startSnow() {
+        if (snowInterval) clearInterval(snowInterval);
+        snowInterval = setInterval(createSnowflake, 400); // New flake every 400ms (Much lighter)
+    }
+
+    function stopSnow() {
+        if (snowInterval) clearInterval(snowInterval);
+        if (snowContainer) snowContainer.innerHTML = '';
+    }
+
+    // --- Navigation & Menu ---
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.querySelector('.nav-links');
 
@@ -10,26 +50,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Smooth Scroll (Fixed Selector Error) ---
     const links = document.querySelectorAll('a[href^="#"]');
 
     links.forEach(link => {
         link.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
-            const targetelement = document.querySelector(targetId);
 
-            if (targetelement) {
-                targetelement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-                if (navLinks.classList.contains('active')) {
-                    menuToggle.classList.remove('active');
-                    navLinks.classList.remove('active');
+            // Fix: Check if targetId is valid and not just '#'
+            if (targetId && targetId !== '#' && targetId.length > 1) {
+                const targetelement = document.querySelector(targetId);
+
+                if (targetelement) {
+                    targetelement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    if (navLinks.classList.contains('active')) {
+                        menuToggle.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    }
                 }
             }
         });
     });
 
+    // --- Intersection Observer for Animations ---
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -48,8 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     animatedElements.forEach(el => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(40px)'; // Larger movement for "Vipe" effect
-        // Ultra-smooth easing (Quintic Out)
+        el.style.transform = 'translateY(40px)';
         el.style.transition = 'opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1), transform 1.2s cubic-bezier(0.23, 1, 0.32, 1)';
         el.style.willChange = 'opacity, transform';
         observer.observe(el);
@@ -63,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     `;
     document.head.appendChild(style);
+
     // --- Advanced Interactives ---
 
     // 1. Spotlight / Torch Effect
@@ -119,4 +165,67 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.5 }); // 50% visible
 
     sections.forEach(section => spyObserver.observe(section));
+
+    // 4. Back to Top Button
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+    const themeBtn = document.getElementById('themeToggle');
+    const html = document.documentElement;
+
+    function setTheme(theme) {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+
+        // Update Icon safely
+        if (themeBtn) {
+            const icon = themeBtn.querySelector('i');
+            if (icon) {
+                if (theme === 'dark') {
+                    icon.className = 'fas fa-moon';
+                    stopSnow();
+                } else if (theme === 'light') {
+                    icon.className = 'fas fa-sun';
+                    stopSnow();
+                } else if (theme === 'christmas') {
+                    icon.className = 'fas fa-snowflake';
+                    startSnow();
+                }
+            }
+        } else {
+            // Fallback if button missing
+            if (theme === 'christmas') startSnow();
+            else stopSnow();
+        }
+    }
+
+    // Check saved
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    setTheme(savedTheme);
+
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme') || 'dark';
+            let next = 'light';
+            if (current === 'light') next = 'christmas';
+            else if (current === 'christmas') next = 'dark';
+
+            setTheme(next);
+        });
+    }
 });

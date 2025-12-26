@@ -49,4 +49,87 @@
     --bg-grid:
         linear-gradient(var(--border-light) 1px, transparent 1px),
         linear-gradient(90deg, var(--border-light) 1px, transparent 1px);
+
+    /* Adaptive Content Colors */
+    --header-bg: rgba(24, 24, 27, 0.7);
+    --header-bg-hover: rgba(24, 24, 27, 0.9);
+    --hero-title-gradient: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
+    --footer-bg: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+
+    --card-shadow: none;
+}
+
+/* --- Solar Light Theme (Platinum Style) --- */
+[data-theme="light"] {
+    --bg-body: #f3f4f6;
+    /* Cool Grey 100 */
+    --bg-surface: #f1f5f9;
+    /* Slate-100 (Icon Backgrounds) */
+    --bg-card: #ffffff;
+    /* White Cards */
+
+    --border-light: #cbd5e1;
+    /* Slate-300 (Crisp) */
+    --border-strong: #94a3b8;
+    /* Slate-400 */
+    --border-glow: rgba(124, 58, 237, 0.1);
+
+    --text-main: #0f172a;
+    /* Slate-900 */
+    --text-muted: #475569;
+    /* Slate-600 */
+    --text-dim: #94a3b8;
+    /* Slate-400 */
+
+    --bg-grid:
+        linear-gradient(#e2e8f0 1px, transparent 1px),
+        linear-gradient(90deg, #e2e8f0 1px, transparent 1px);
+
+    /* Adaptive Light Colors */
+    --header-bg: rgba(255, 255, 255, 0.7);
+    --header-bg-hover: rgba(255, 255, 255, 0.95);
+    --hero-title-gradient: linear-gradient(135deg, #0f172a 0%, #475569 100%);
+    /* Dark Gradient */
+    --footer-bg: linear-gradient(to top, #e2e8f0, transparent);
+    /* Subtle Grey Fade */
+
+    --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+    /* Light Mode Images: Clear and Visible */
+    --bento-img-opacity: 0.8;
+    --bento-img-filter: grayscale(0%);
+}
+
+/* --- Christmas Theme (Winter Night) --- */
+[data-theme="christmas"] {
+    --bg-body: #020617;
+    /* Deep Slate (ink blue) */
+    --bg-surface: #0f172a;
+    /* Slate-900 */
+    --bg-card: rgba(15, 23, 42, 0.6);
+    /* Frosted Blue Glass */
+
+    --primary: #fb7185;
+    /* Rose-400 (Soft Red) */
+    --accent: #38bdf8;
+    /* Sky-400 (Ice Blue) */
+
+    --gradient-primary: linear-gradient(135deg, #fb7185 0%, #e11d48 100%);
+    /* Candy Cane */
+    --gradient-text: linear-gradient(to right, #fca5a5, #bae6fd);
+
+    --border-light: rgba(255, 255, 255, 0.1);
+    --border-strong: rgba(255, 255, 255, 0.2);
+    --border-glow: rgba(251, 113, 133, 0.3);
+
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+
+    --header-bg: rgba(15, 23, 42, 0.7);
+    --header-bg-hover: rgba(15, 23, 42, 0.9);
+    --hero-title-gradient: linear-gradient(135deg, #f8fafc 0%, #bae6fd 100%);
+    /* Icy White */
+    --footer-bg: linear-gradient(to top, rgba(2, 6, 23, 0.8), transparent);
+
+    --card-shadow: none;
 }
